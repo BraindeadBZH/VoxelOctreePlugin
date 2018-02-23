@@ -1,0 +1,13 @@
+{
+  "size" : 8,
+  "shapes": [
+    {"type": "cube", "position": [0, 0, 0], "extent": [8, 1, 8]},
+    {"type": "cube", "position": [0, 1, 0], "extent": [7, 1, 7]},
+    {"type": "cube", "position": [0, 2, 0], "extent": [6, 1, 6]},
+    {"type": "cube", "position": [0, 3, 0], "extent": [5, 1, 5]},
+    {"type": "cube", "position": [0, 4, 0], "extent": [4, 1, 4]},
+    {"type": "cube", "position": [0, 5, 0], "extent": [3, 1, 3]},
+    {"type": "cube", "position": [0, 6, 0], "extent": [2, 1, 2]},
+    {"type": "cube", "position": [0, 7, 0], "extent": [1, 1, 1]},
+  ]
+}

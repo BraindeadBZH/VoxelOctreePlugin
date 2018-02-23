@@ -1,0 +1,7 @@
+{
+  "size" : 16,
+  "shapes": [
+    {"type": "cube", "position": [0, 0, 0], "extent": [9, 9, 9]},
+    {"type": "cube", "position": [7, 7, 7], "extent": [9, 9, 9]},
+  ]
+}

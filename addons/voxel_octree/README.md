@@ -3,7 +3,7 @@ Voxel Octree is an easy to use Godot Engine plugin to create voxel based meshes.
 The plugin use an octree to optimize the rendering and a procedural language, based on JSON, to quickly create shapes.
 
 ## How to use
-After installing the plugin, through the AssetLib or manually, just search for the 'VoxelOctree' node under Spatial/VisualInstance/GeometryInstance.
+After installing the plugin, through the AssetLib or manually, just search for the 'VoxelOctree' node under Spatial/VisualInstance/GeometryInstance/MeshInstance.
 Once the node is added to your scene, you can select your shape file with the source parameter and the shape will appear in the editor.
 The second parameter called 'Resolution' is to give the size of a voxel in Godot's 3D unit.
 

@@ -1,7 +1,7 @@
 tool
 extends MeshInstance
 
-var OctreeNode = load("octree_node.gd")
+var OctreeNode = load("res://addons/voxel_octree/octree_node.gd")
 
 export(String, FILE, "*.json") var source setget set_source
 export(float, 1.0, 10.0) var resolution = 1.0
@@ -19,6 +19,8 @@ func set_source(new_source):
 	_read_source()
 
 func _read_source():
+	if source == null: return
+
 	var file = File.new()
 	file.open(source, File.READ)
 	

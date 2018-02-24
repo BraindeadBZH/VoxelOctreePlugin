@@ -1,0 +1,9 @@
+{
+  "size" : 16,
+  "shapes": [
+    {"type": "cube", "position": [0, 0, 0], "extent": [16, 16, 16]},
+    {"type": "cube", "position": [6, 6, 0], "extent": [ 4,  4, 16], "invert": true},
+    {"type": "cube", "position": [6, 0, 6], "extent": [ 4, 16,  4], "invert": true},
+    {"type": "cube", "position": [0, 6, 6], "extent": [16,  4,  4], "invert": true},
+  ]
+}

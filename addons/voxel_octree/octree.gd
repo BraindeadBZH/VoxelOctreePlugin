@@ -60,7 +60,10 @@ func _draw_cube(shape):
 	for x in range(shape.position[0], shape.position[0] + shape.extent[0]):
 		for y in range(shape.position[1], shape.position[1] + shape.extent[1]):
 			for z in range(shape.position[2], shape.position[2] + shape.extent[2]):
-				_set_voxel(Vector3(x, y, z), 1)
+				if shape.has("invert") && shape.invert:
+					_set_voxel(Vector3(x, y, z), 0)
+				else:
+					_set_voxel(Vector3(x, y, z), 1)
 
 func _voxels_to_octree():
 	_octree.clear()

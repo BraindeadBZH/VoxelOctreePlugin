@@ -3,3 +3,5 @@
 default_env.tres
 icon.png
 project.godot
+lookat_camera.gd
+main.tscn

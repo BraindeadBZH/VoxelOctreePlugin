@@ -4,7 +4,7 @@ extends MeshInstance
 var OctreeNode = load("res://addons/voxel_octree/octree_node.gd")
 
 export(String, FILE, "*.json") var source setget set_source
-export(float, 1.0, 10.0) var resolution = 1.0
+export(float, 0.0, 100.0) var resolution = 1.0 setget set_resolution
 
 var _size = 16
 var _shapes = Array()
@@ -17,6 +17,10 @@ func _ready():
 func set_source(new_source):
 	source = new_source
 	_read_source()
+
+func set_resolution(new_resolution):
+	resolution = new_resolution
+	_octree_to_mesh()
 
 func _read_source():
 	if source == null: return
@@ -90,9 +94,9 @@ func _octree_to_mesh_recurse(surf_tool, node):
 		return
 	
 	if !node.has_children():
-		var x_origin = node.get_origin().x
-		var y_origin = node.get_origin().y
-		var z_origin = node.get_origin().z
+		var x_origin = node.get_origin().x*resolution
+		var y_origin = node.get_origin().y*resolution
+		var z_origin = node.get_origin().z*resolution
 		var x_corner = x_origin + node.get_size()*resolution
 		var y_corner = y_origin + node.get_size()*resolution
 		var z_corner = z_origin + node.get_size()*resolution

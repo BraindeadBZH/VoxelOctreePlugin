@@ -1,0 +1,9 @@
+{
+  "size" : 32,
+  "shapes": [
+    {"type": "cube", "position": [0, 0, 0], "extent": [32, 32, 32]},
+    {"type": "cylindre", "position": [0, 8, 8], "radius": 8, "length": 32, "orientation": "x", "invert": true},
+    {"type": "cylindre", "position": [8, 0, 8], "radius": 8, "length": 32, "orientation": "y", "invert": true},
+    {"type": "cylindre", "position": [8, 8, 0], "radius": 8, "length": 32, "orientation": "z", "invert": true},
+  ]
+}

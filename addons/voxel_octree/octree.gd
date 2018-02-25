@@ -50,8 +50,10 @@ func _read_source():
 	for shape in _shapes:
 		if shape.type == "cube":
 			_draw_cube(shape)
-		if shape.type == "sphere":
+		elif shape.type == "sphere":
 			_draw_sphere(shape)
+		elif shape.type == "cylindre":
+			_draw_cylindre(shape)
 	
 	_voxels_to_octree()
 
@@ -83,6 +85,41 @@ func _draw_sphere(shape):
 						_set_voxel(Vector3(x, y, z), 0)
 					else:
 						_set_voxel(Vector3(x, y, z), 1)
+
+func _draw_cylindre(shape):
+	if shape.orientation == "x":
+		for x in range(shape.position[0], shape.position[0] + shape.length):
+			for y in range(shape.position[1], shape.position[1] + shape.radius*2):
+				for z in range(shape.position[2], shape.position[2] + shape.radius*2):
+					var yr = y - shape.radius - shape.position[1]
+					var zr = z - shape.radius - shape.position[2]
+					if sqrt(yr*yr + zr*zr) <= shape.radius:
+						if shape.has("invert") && shape.invert:
+							_set_voxel(Vector3(x, y, z), 0)
+						else:
+							_set_voxel(Vector3(x, y, z), 1)
+	elif shape.orientation == "y":
+		for x in range(shape.position[0], shape.position[0] + shape.radius*2):
+			for y in range(shape.position[1], shape.position[1] + shape.length):
+				for z in range(shape.position[2], shape.position[2] + shape.radius*2):
+					var xr = x - shape.radius - shape.position[0]
+					var zr = z - shape.radius - shape.position[2]
+					if sqrt(xr*xr + zr*zr) <= shape.radius:
+						if shape.has("invert") && shape.invert:
+							_set_voxel(Vector3(x, y, z), 0)
+						else:
+							_set_voxel(Vector3(x, y, z), 1)
+	elif shape.orientation == "z":
+		for x in range(shape.position[0], shape.position[0] + shape.radius*2):
+			for y in range(shape.position[1], shape.position[1] + shape.radius*2):
+				for z in range(shape.position[2], shape.position[2] + shape.length):
+					var xr = x - shape.radius - shape.position[0]
+					var yr = y - shape.radius - shape.position[1]
+					if sqrt(xr*xr + yr*yr) <= shape.radius:
+						if shape.has("invert") && shape.invert:
+							_set_voxel(Vector3(x, y, z), 0)
+						else:
+							_set_voxel(Vector3(x, y, z), 1)
 
 func _voxels_to_octree():
 	_octree.clear()

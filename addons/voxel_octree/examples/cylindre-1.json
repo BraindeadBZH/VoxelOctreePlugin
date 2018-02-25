@@ -1,0 +1,6 @@
+{
+  "size" : 32,
+  "shapes": [
+    {"type": "cylindre", "position": [0, 0, 0], "radius": 16, "length": 32, "orientation": "z"},
+  ]
+}

@@ -50,6 +50,8 @@ func _read_source():
 	for shape in _shapes:
 		if shape.type == "cube":
 			_draw_cube(shape)
+		if shape.type == "sphere":
+			_draw_sphere(shape)
 	
 	_voxels_to_octree()
 
@@ -68,6 +70,19 @@ func _draw_cube(shape):
 					_set_voxel(Vector3(x, y, z), 0)
 				else:
 					_set_voxel(Vector3(x, y, z), 1)
+
+func _draw_sphere(shape):
+	for x in range(shape.position[0], shape.position[0] + shape.radius*2):
+		for y in range(shape.position[1], shape.position[1] + shape.radius*2):
+			for z in range(shape.position[2], shape.position[2] + shape.radius*2):
+				var xr = x - shape.radius - shape.position[0]
+				var yr = y - shape.radius - shape.position[1]
+				var zr = z - shape.radius - shape.position[2]
+				if sqrt(xr*xr + yr*yr + zr*zr) <= shape.radius:
+					if shape.has("invert") && shape.invert:
+						_set_voxel(Vector3(x, y, z), 0)
+					else:
+						_set_voxel(Vector3(x, y, z), 1)
 
 func _voxels_to_octree():
 	_octree.clear()

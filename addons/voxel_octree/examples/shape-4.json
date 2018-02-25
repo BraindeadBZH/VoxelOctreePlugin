@@ -1,0 +1,7 @@
+{
+  "size" : 16,
+  "shapes": [
+    {"type": "cube", "position": [0, 0, 0], "extent": [16, 16, 16]},
+    {"type": "sphere", "position": [-1, -1, -1], "radius": 9, "invert": true},
+  ]
+}

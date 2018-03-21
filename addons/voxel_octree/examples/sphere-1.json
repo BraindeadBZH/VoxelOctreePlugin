@@ -1,7 +1,6 @@
 {
   "size" : 32,
   "shapes": [
-    {"type": "sphere", "position": [0, 0, 0], "radius": 16},
-    {"type": "sphere", "position": [0, 8, 0], "radius": 16, "invert": true},
+    {"type": "sphere", "position": [0, 0, 0], "radius": 16}
   ]
 }

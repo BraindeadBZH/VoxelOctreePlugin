@@ -23,9 +23,46 @@ Here is an example of shape to draw a chair:
   ]
 }
 ```
+Here is another example of shape to draw a sphere:
+``` json
+{
+  "size" : 32,
+  "shapes": [
+    {"type": "sphere", "position": [0, 0, 0], "radius": 16}
+  ]
+}
+```
+Here is another example of shape to draw a cylindre:
+``` json
+{
+  "size" : 32,
+  "shapes": [
+    {"type": "cylindre", "position": [0, 0, 0], "radius": 16, "length": 32, "orientation": "z"},
+  ]
+}
+```
+Here is another example of shape to make cylindrical holes in a cube:
+``` json
+{
+  "size" : 32,
+  "shapes": [
+    {"type": "cube", "position": [0, 0, 0], "extent": [32, 32, 32]},
+    {"type": "cylindre", "position": [0, 8, 8], "radius": 8, "length": 32, "orientation": "x", "invert": true},
+    {"type": "cylindre", "position": [8, 0, 8], "radius": 8, "length": 32, "orientation": "y", "invert": true},
+    {"type": "cylindre", "position": [8, 8, 0], "radius": 8, "length": 32, "orientation": "z", "invert": true},
+  ]
+}
+```
 As said the format is based on JSON, and the root is an object containing the following properties:
-* size: this is the size of your voxel canvas in number of voxel on the three axis. Due to using Octree, the canvas has to be a cube and the size has to be a _power of 2_
-* shapes: this is an array of shapes describing how to build your final shape. At the moment only type `cube` is supported. The properties position and extent are expressed in voxel unit.
+* size: this is the size of your voxel canvas in number of voxel on the three axis. Due to using Octree, the canvas has to be a cube and the size has to be a _power of 2_.
+* shapes: this is an array of shapes describing how to build your final shape.
+  * type: can be "cube", "cylindre" or "sphere".
+  * position: three dimensional position of the shape's origin in the canvas.
+  * extent (cube only): dimension of the cube in all three dimensions.
+  * radius (sphere or cylindre): dimension of the radius.
+  * length (cylindre only): dimension of the cylindre along the orientation axis.
+  * orientation (cylindre only): axis along which the cylindre will be extended.
+  * invert (optional, default: false): if true, voxels inside the shape will be removed, otherwise voxels are added.
 
 License
 ----
